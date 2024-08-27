@@ -27,20 +27,24 @@ CoupsJ2=grille(10)
 
 
 def ajoutebateau(grille,x,y,taille,direction):
-    grille[y-1][x-1]=True
     if direction==True:
+        if taille+x>len(grille):
+            return False
         for i in range(taille):
-            grille[y - 1][x - 1] = True
+            grille[y][x] = True
             x=x+1
     if direction==False:
+        if taille + y > len(grille):
+            return False
         for i in range(taille):
-            grille[y - 1][x - 1] = True
+            grille[y][x] = True
             y=y+1
+
 
 
 
 if __name__ == '__main__':
     test=grille(10)
-    ajoutebateau(test,1,1,8,False)
+    ajoutebateau(test,0,10,8,False)
     affichegrille(test)
 
