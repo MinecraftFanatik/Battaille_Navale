@@ -1,3 +1,7 @@
+from operator import truediv
+from os import abort
+
+
 def grille(taille):
     g=[]
     for i in range(taille):
@@ -22,6 +26,21 @@ CoupsJ1=grille(10)
 CoupsJ2=grille(10)
 
 
+def ajoutebateau(grille,x,y,taille,direction):
+    grille[y-1][x-1]=True
+    if direction==True:
+        for i in range(taille):
+            grille[y - 1][x - 1] = True
+            x=x+1
+    if direction==False:
+        for i in range(taille):
+            grille[y - 1][x - 1] = True
+            y=y+1
+
+
+
 if __name__ == '__main__':
-    g = grille(10)
-    affichegrille(g)
+    test=grille(10)
+    ajoutebateau(test,1,1,8,False)
+    affichegrille(test)
+
